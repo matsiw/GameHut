@@ -12,6 +12,7 @@ class Member {
     
     var name: String = "Member Name" // FIX THIS
     var friends: [String] = []
+    var lastLogin = NSDate()
     
     
 }
