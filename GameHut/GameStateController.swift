@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+// Handles all state of all games in GamesViewController tableview
+
+class GameStateController {
+    
+}

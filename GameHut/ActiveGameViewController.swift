@@ -1,8 +1,8 @@
 //
-//  GroupMessagingViewController.swift
+//  ActiveGameViewController.swift
 //  GameHut
 //
-//  Created by Matthew A Siwkiewicz on 7/7/16.
+//  Created by Matthew A Siwkiewicz on 7/12/16.
 //  Copyright © 2016 Matthew A Siwkiewicz. All rights reserved.
 //
 
@@ -10,7 +10,10 @@ import UIKit
 
 // ADD VIEW CONTROLLER TO STORYBOARD
 
-class GroupMessagingViewController: UIViewController {
+
+// Class deals with a game while it is being played. Specific game data passed into this view controller
+
+class ActiveGameViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

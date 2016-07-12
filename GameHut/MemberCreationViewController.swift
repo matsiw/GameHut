@@ -8,6 +8,8 @@
 
 import UIKit
 
+// ADD VIEW CONTROLLER TO STORYBOARD
+
 class MemberCreationViewController: UIViewController {
 
     override func viewDidLoad() {

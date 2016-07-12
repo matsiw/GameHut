@@ -1,8 +1,8 @@
 //
-//  GroupMessagingViewController.swift
+//  SignInScreenViewController.swift
 //  GameHut
 //
-//  Created by Matthew A Siwkiewicz on 7/7/16.
+//  Created by Matthew A Siwkiewicz on 7/12/16.
 //  Copyright © 2016 Matthew A Siwkiewicz. All rights reserved.
 //
 
@@ -10,7 +10,8 @@ import UIKit
 
 // ADD VIEW CONTROLLER TO STORYBOARD
 
-class GroupMessagingViewController: UIViewController {
+
+class SignUpScreenViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

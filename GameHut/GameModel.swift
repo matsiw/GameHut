@@ -8,6 +8,8 @@
 
 import Foundation
 
+// Will be subclassed to create specfic model for each specific game made for the app
+
 class GameModel {
     
     
