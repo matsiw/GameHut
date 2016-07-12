@@ -8,11 +8,14 @@
 
 import Foundation
 
-class Member {
+struct MemberModel {
     
-    var name: String = "Member Name" // FIX THIS
+    var name: String
     var friends: [String] = []
-    var lastLogin = NSDate()
+    var id: Int = 1 // FIX
     
+    init(name: String) {
+        self.name = name
+    }
     
 }

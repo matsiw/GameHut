@@ -15,7 +15,8 @@ class GroupsViewController: UIViewController, UINavigationBarDelegate, UITableVi
     @IBOutlet weak var groupNavBar: UINavigationBar!
     @IBOutlet weak var groupTableView: UITableView!
     
-    var arrayOfAllGroups: [String] = []
+    var groupStateController = GroupStateController()
+    var localMemberStateController = LocalMemberStateController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,6 +48,16 @@ class GroupsViewController: UIViewController, UINavigationBarDelegate, UITableVi
         case LeaveGroupAlert
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if sender?.identifier == Constants.CreateGroup {
+            if let destinationViewController = segue.destinationViewController as? CreateGroupViewController {
+                destinationViewController.groupStateController = groupStateController
+                destinationViewController.localMemberStateController = localMemberStateController
+            }
+        }
+
+    }
+    
     // MARK: TableView Methods
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
@@ -54,7 +65,7 @@ class GroupsViewController: UIViewController, UINavigationBarDelegate, UITableVi
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // for testing
-        return arrayOfAllGroups.count
+        return groupStateController.arrayOfAllGroups.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -63,7 +74,7 @@ class GroupsViewController: UIViewController, UINavigationBarDelegate, UITableVi
         let row = indexPath.row
         
         // for testing
-        cell.textLabel?.text = arrayOfAllGroups[row]
+        cell.textLabel?.text = groupStateController.arrayOfAllGroups[row].groupName
     
         return cell
     }
@@ -73,7 +84,7 @@ class GroupsViewController: UIViewController, UINavigationBarDelegate, UITableVi
     }
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        arrayOfAllGroups.removeAtIndex(indexPath.row)
+        groupStateController.arrayOfAllGroups.removeAtIndex(indexPath.row)
         tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
     }
     

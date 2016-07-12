@@ -12,9 +12,15 @@ class CreateGroupViewController: UIViewController, UINavigationBarDelegate
 {
     @IBOutlet weak var createGroupNavBar: UINavigationBar!
     
+    var groupStateController: GroupStateController?
+    var localMemberStateController: LocalMemberStateController?
+    
+    @IBOutlet weak var groupName: UITextField!
+    
     @IBAction func cancel(sender: UIBarButtonItem) {
         presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
     }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +35,16 @@ class CreateGroupViewController: UIViewController, UINavigationBarDelegate
     
     func positionForBar(bar: UIBarPositioning) -> UIBarPosition {
         return UIBarPosition.TopAttached
+    }
+    @IBAction func createGroup(sender: UIButton) {
+        guard let state = groupStateController else { return }
+        guard let member = localMemberStateController else { return }
+        
+        // Set all information to a new copy of a model and pass it to the state
+
+        var model = GroupModel(groupName: groupName.text!, groupID: 1, groupOwner: member.localMember!.name)
+        state.arrayOfAllGroups.append(model)
+        
     }
     
 }

@@ -7,3 +7,10 @@
 //
 
 import Foundation
+
+class GroupStateController {
+     var arrayOfAllGroups: [GroupModel] = []
+    
+    
+    
+}
