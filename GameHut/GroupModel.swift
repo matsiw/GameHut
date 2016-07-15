@@ -15,9 +15,11 @@ struct GroupModel {
     var groupName: String
     var groupID: Int  // FIX
     var groupOwner: String
+    
     var numberOfGroupMembers: Int = 1 // at least one member needed for group to exist
     var namesOfGroupMembers: [String] = []
     var nicknamesOfGroupMembers: [String] = []
+    
     var groupImage: UIImage = UIImage(named: ImageAssets.Default.rawValue)!
     // network specfic properties
     var accessType: AccessType = .Public // public or private

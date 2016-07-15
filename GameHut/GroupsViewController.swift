@@ -49,7 +49,7 @@ class GroupsViewController: UIViewController, UINavigationBarDelegate, UITableVi
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if sender?.identifier == Constants.CreateGroup {
+        if segue.identifier == Constants.CreateGroup {
             if let destinationViewController = segue.destinationViewController as? CreateGroupViewController {
                 destinationViewController.groupStateController = groupStateController
                 destinationViewController.localMemberStateController = localMemberStateController

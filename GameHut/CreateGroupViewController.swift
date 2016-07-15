@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CreateGroupViewController: UIViewController, UINavigationBarDelegate
+class CreateGroupViewController: UIViewController, UINavigationBarDelegate, ErrorHandling
 {
     @IBOutlet weak var createGroupNavBar: UINavigationBar!
     
@@ -36,6 +36,12 @@ class CreateGroupViewController: UIViewController, UINavigationBarDelegate
     func positionForBar(bar: UIBarPositioning) -> UIBarPosition {
         return UIBarPosition.TopAttached
     }
+    
+    // Protocol implementation
+    func presentError(typeOfError: String, errorMessage: String) {
+        print(typeOfError)
+    }
+    
     @IBAction func createGroup(sender: UIButton) {
         guard let state = groupStateController else { return }
         guard let member = localMemberStateController else { return }
@@ -45,6 +51,7 @@ class CreateGroupViewController: UIViewController, UINavigationBarDelegate
         var model = GroupModel(groupName: groupName.text!, groupID: 1, groupOwner: member.localMember!.name)
         state.arrayOfAllGroups.append(model)
         
+        presentError("Dummy", errorMessage: "Dummy")
     }
     
 }
