@@ -1,5 +1,5 @@
 //
-//  MemberStateController.swift
+//  LocalMemberStateController.swift
 //  GameHut
 //
 //  Created by Matthew A Siwkiewicz on 7/11/16.

@@ -1,5 +1,5 @@
 //
-//  SignInScreenViewController.swift
+//  LogInScreenViewController.swift
 //  GameHut
 //
 //  Created by Matthew A Siwkiewicz on 7/12/16.

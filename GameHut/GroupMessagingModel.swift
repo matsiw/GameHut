@@ -1,5 +1,5 @@
 //
-//  GroupMessages.swift
+//  GroupMessagingModel.swift
 //  GameHut
 //
 //  Created by Matthew A Siwkiewicz on 7/7/16.

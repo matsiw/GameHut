@@ -73,7 +73,6 @@ class GroupsViewController: UIViewController, UINavigationBarDelegate, UITableVi
         
         let row = indexPath.row
         
-        // for testing
         cell.textLabel?.text = groupStateController.arrayOfAllGroups[row].groupName
     
         return cell

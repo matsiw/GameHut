@@ -323,42 +323,66 @@
         <scene sceneID="iqf-3H-e6e">
             <objects>
                 <viewController id="4br-5M-aJc" customClass="AddMembersViewController" customModule="GameHut" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qqR-d8-gco"/>
+                        <viewControllerLayoutGuide type="bottom" id="yQX-l3-Eph"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="OWy-jP-Zgi">
                         <rect key="frame" x="0.0" y="0.0" width="560" height="429"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l3w-us-5ZT">
+                                <rect key="frame" x="0.0" y="0.0" width="560" height="44"/>
+                                <items>
+                                    <navigationItem title="Add Members" id="mhK-kN-Pfv"/>
+                                </items>
+                            </navigationBar>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="lze-A2-PzX">
+                                <rect key="frame" x="0.0" y="45" width="560" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="F5x-wX-a7b">
-                                <rect key="frame" x="0.0" y="44" width="560" height="385"/>
+                                <rect key="frame" x="0.0" y="89" width="560" height="340"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="HvM-k9-wnV">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FriendCell" textLabel="v50-Gz-kZe" style="IBUITableViewCellStyleDefault" id="HvM-k9-wnV">
                                         <rect key="frame" x="0.0" y="50" width="560" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HvM-k9-wnV" id="4xa-oZ-yM8">
                                             <rect key="frame" x="0.0" y="0.0" width="560" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="v50-Gz-kZe">
+                                                    <rect key="frame" x="15" y="0.0" width="530" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l3w-us-5ZT">
-                                <rect key="frame" x="0.0" y="0.0" width="560" height="44"/>
-                                <items>
-                                    <navigationItem title="Add Friends" id="mhK-kN-Pfv"/>
-                                </items>
-                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="l3w-us-5ZT" firstAttribute="leading" secondItem="OWy-jP-Zgi" secondAttribute="leading" id="18q-Yz-e7E"/>
-                            <constraint firstItem="l3w-us-5ZT" firstAttribute="trailing" secondItem="F5x-wX-a7b" secondAttribute="trailing" id="6k8-L3-W1A"/>
-                            <constraint firstAttribute="bottom" secondItem="F5x-wX-a7b" secondAttribute="bottom" id="CTa-tK-Ac4"/>
-                            <constraint firstItem="l3w-us-5ZT" firstAttribute="top" secondItem="OWy-jP-Zgi" secondAttribute="top" id="PXC-cP-cAB"/>
-                            <constraint firstItem="F5x-wX-a7b" firstAttribute="top" secondItem="l3w-us-5ZT" secondAttribute="bottom" id="cJM-Ei-l2i"/>
-                            <constraint firstItem="l3w-us-5ZT" firstAttribute="leading" secondItem="F5x-wX-a7b" secondAttribute="leading" id="oaA-lv-PFi"/>
-                            <constraint firstAttribute="trailing" secondItem="l3w-us-5ZT" secondAttribute="trailing" id="xco-ae-3Qi"/>
+                            <constraint firstItem="l3w-us-5ZT" firstAttribute="leading" secondItem="OWy-jP-Zgi" secondAttribute="leading" id="5AU-ye-Wta"/>
+                            <constraint firstItem="F5x-wX-a7b" firstAttribute="top" secondItem="lze-A2-PzX" secondAttribute="bottom" id="GbB-GK-3AP"/>
+                            <constraint firstItem="F5x-wX-a7b" firstAttribute="leading" secondItem="lze-A2-PzX" secondAttribute="leading" id="Ig0-Pm-Jxc"/>
+                            <constraint firstAttribute="trailing" secondItem="l3w-us-5ZT" secondAttribute="trailing" id="NVn-wW-b24"/>
+                            <constraint firstItem="l3w-us-5ZT" firstAttribute="top" secondItem="qqR-d8-gco" secondAttribute="bottom" id="RsS-eS-lUN"/>
+                            <constraint firstItem="F5x-wX-a7b" firstAttribute="bottom" secondItem="yQX-l3-Eph" secondAttribute="top" id="bTL-5u-YLh"/>
+                            <constraint firstItem="lze-A2-PzX" firstAttribute="top" secondItem="l3w-us-5ZT" secondAttribute="bottom" constant="1" id="bXA-ar-iIj"/>
+                            <constraint firstItem="lze-A2-PzX" firstAttribute="leading" secondItem="l3w-us-5ZT" secondAttribute="leading" id="df6-Sx-eTG"/>
+                            <constraint firstItem="lze-A2-PzX" firstAttribute="trailing" secondItem="F5x-wX-a7b" secondAttribute="trailing" id="h8j-fj-UbS"/>
+                            <constraint firstItem="l3w-us-5ZT" firstAttribute="trailing" secondItem="lze-A2-PzX" secondAttribute="trailing" id="syF-9E-dGI"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="friendNavBar" destination="l3w-us-5ZT" id="gCm-fu-BTo"/>
+                        <outlet property="memberTableView" destination="F5x-wX-a7b" id="yfL-9h-EBA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pU4-l5-Qgu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
