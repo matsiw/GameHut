@@ -9,8 +9,11 @@
 import Foundation
 
 class GroupStateController {
-     var arrayOfAllGroups: [GroupModel] = []
+    private(set) var arrayOfAllGroups = [GroupModel]()
     
+    func addModel(model: GroupModel) {
+        arrayOfAllGroups.append(model)
+    }
     
     
 }

@@ -12,8 +12,8 @@ class CreateGroupViewController: UIViewController, UINavigationBarDelegate
 {
     @IBOutlet weak var createGroupNavBar: UINavigationBar!
     
-    var groupStateController: GroupStateController?
-    var localMemberStateController: LocalMemberStateController?
+    let groupStateController = GroupStateController()
+    let localMemberStateController = LocalMemberStateController()
     
     @IBOutlet weak var groupName: UITextField!
     
@@ -38,14 +38,13 @@ class CreateGroupViewController: UIViewController, UINavigationBarDelegate
     }
     
     @IBAction func createGroup(sender: UIButton) {
-        guard let state = groupStateController else { return }
-        guard let member = localMemberStateController else { return }
-        
         // Set all information to a new copy of a model and pass it to the state
-
-        let model = GroupModel(groupName: groupName.text!, groupID: 1, groupOwner: member.localMember.name)
-        state.arrayOfAllGroups.append(model)
         
+        // Check if groupName is empty and send error if true
+
+        let model = GroupModel(groupName: groupName.text!, groupID: 1, groupOwner: localMemberStateController.localMember.name)
+        groupStateController.addModel(model)
+    
         presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
 
     }

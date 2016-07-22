@@ -8,11 +8,9 @@
 
 import Foundation
 
-// ADD VIEW CONTROLLER TO STORYBOARD
-
 
 class LocalMemberStateController {
     // this class should only effect the local user and not users across the network
-    var localMember = MemberModel(name: "User") // temporary FIX
+    private(set) var localMember = MemberModel(name: "User") // temporary FIX
     
 }
