@@ -25,6 +25,11 @@ class GroupsViewController: UIViewController, UINavigationBarDelegate, UITableVi
         groupTableView.dataSource = self
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        groupTableView.reloadData()
+    }
+    
     func positionForBar(bar: UIBarPositioning) -> UIBarPosition {
         return UIBarPosition.TopAttached
     }
@@ -104,5 +109,10 @@ extension UIViewController
             return self
         }
     }
+    
+    func colorPicker(red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) -> UIColor {
+        return UIColor(red: red/255.0, green: green/255.0, blue: blue/255.0, alpha: alpha)
+    }
+    
 }
 

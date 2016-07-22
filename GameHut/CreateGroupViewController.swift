@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CreateGroupViewController: UIViewController, UINavigationBarDelegate, ErrorHandling
+class CreateGroupViewController: UIViewController, UINavigationBarDelegate
 {
     @IBOutlet weak var createGroupNavBar: UINavigationBar!
     
@@ -37,21 +37,17 @@ class CreateGroupViewController: UIViewController, UINavigationBarDelegate, Erro
         return UIBarPosition.TopAttached
     }
     
-    // Protocol implementation
-    func presentError(typeOfError: String, errorMessage: String) {
-        print(typeOfError)
-    }
-    
     @IBAction func createGroup(sender: UIButton) {
         guard let state = groupStateController else { return }
         guard let member = localMemberStateController else { return }
         
         // Set all information to a new copy of a model and pass it to the state
 
-        var model = GroupModel(groupName: groupName.text!, groupID: 1, groupOwner: member.localMember!.name)
+        let model = GroupModel(groupName: groupName.text!, groupID: 1, groupOwner: member.localMember.name)
         state.arrayOfAllGroups.append(model)
         
-        presentError("Dummy", errorMessage: "Dummy")
+        presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
+
     }
     
 }

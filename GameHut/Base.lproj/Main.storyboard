@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1808" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="bXC-NZ-JbT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1909" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="bXC-NZ-JbT">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
@@ -331,19 +331,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="560" height="429"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l3w-us-5ZT">
-                                <rect key="frame" x="0.0" y="0.0" width="560" height="44"/>
-                                <items>
-                                    <navigationItem title="Add Members" id="mhK-kN-Pfv"/>
-                                </items>
-                            </navigationBar>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="lze-A2-PzX">
-                                <rect key="frame" x="0.0" y="45" width="560" height="44"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="F5x-wX-a7b">
                                 <rect key="frame" x="0.0" y="89" width="560" height="340"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="340" id="B4p-8t-BGi"/>
+                                </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FriendCell" textLabel="v50-Gz-kZe" style="IBUITableViewCellStyleDefault" id="HvM-k9-wnV">
                                         <rect key="frame" x="0.0" y="50" width="560" height="44"/>
@@ -356,7 +349,7 @@
                                                     <rect key="frame" x="15" y="0.0" width="530" height="43"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -364,24 +357,28 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Type a name or phone number" translatesAutoresizingMaskIntoConstraints="NO" id="KLg-Em-BvN">
+                                <rect key="frame" x="0.0" y="0.0" width="560" height="89"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="l3w-us-5ZT" firstAttribute="leading" secondItem="OWy-jP-Zgi" secondAttribute="leading" id="5AU-ye-Wta"/>
-                            <constraint firstItem="F5x-wX-a7b" firstAttribute="top" secondItem="lze-A2-PzX" secondAttribute="bottom" id="GbB-GK-3AP"/>
-                            <constraint firstItem="F5x-wX-a7b" firstAttribute="leading" secondItem="lze-A2-PzX" secondAttribute="leading" id="Ig0-Pm-Jxc"/>
-                            <constraint firstAttribute="trailing" secondItem="l3w-us-5ZT" secondAttribute="trailing" id="NVn-wW-b24"/>
-                            <constraint firstItem="l3w-us-5ZT" firstAttribute="top" secondItem="qqR-d8-gco" secondAttribute="bottom" id="RsS-eS-lUN"/>
-                            <constraint firstItem="F5x-wX-a7b" firstAttribute="bottom" secondItem="yQX-l3-Eph" secondAttribute="top" id="bTL-5u-YLh"/>
-                            <constraint firstItem="lze-A2-PzX" firstAttribute="top" secondItem="l3w-us-5ZT" secondAttribute="bottom" constant="1" id="bXA-ar-iIj"/>
-                            <constraint firstItem="lze-A2-PzX" firstAttribute="leading" secondItem="l3w-us-5ZT" secondAttribute="leading" id="df6-Sx-eTG"/>
-                            <constraint firstItem="lze-A2-PzX" firstAttribute="trailing" secondItem="F5x-wX-a7b" secondAttribute="trailing" id="h8j-fj-UbS"/>
-                            <constraint firstItem="l3w-us-5ZT" firstAttribute="trailing" secondItem="lze-A2-PzX" secondAttribute="trailing" id="syF-9E-dGI"/>
+                            <constraint firstItem="F5x-wX-a7b" firstAttribute="leading" secondItem="OWy-jP-Zgi" secondAttribute="leading" id="7FV-9l-iu6"/>
+                            <constraint firstItem="F5x-wX-a7b" firstAttribute="leading" secondItem="KLg-Em-BvN" secondAttribute="leading" id="LpD-2B-kD1"/>
+                            <constraint firstItem="F5x-wX-a7b" firstAttribute="top" secondItem="KLg-Em-BvN" secondAttribute="bottom" id="Vht-El-ScQ"/>
+                            <constraint firstItem="F5x-wX-a7b" firstAttribute="trailing" secondItem="KLg-Em-BvN" secondAttribute="trailing" id="el3-he-zIY"/>
+                            <constraint firstItem="F5x-wX-a7b" firstAttribute="bottom" secondItem="yQX-l3-Eph" secondAttribute="top" id="sNc-cg-ltg"/>
+                            <constraint firstAttribute="trailing" secondItem="F5x-wX-a7b" secondAttribute="trailing" id="sz6-pe-sK8"/>
+                            <constraint firstItem="KLg-Em-BvN" firstAttribute="top" secondItem="qqR-d8-gco" secondAttribute="bottom" id="tGK-9n-uqM"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="friendNavBar" destination="l3w-us-5ZT" id="gCm-fu-BTo"/>
                         <outlet property="memberTableView" destination="F5x-wX-a7b" id="yfL-9h-EBA"/>
+                        <outlet property="searchAndAddMemberView" destination="KLg-Em-BvN" id="5gM-e1-r3c"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pU4-l5-Qgu" userLabel="First Responder" sceneMemberID="firstResponder"/>
