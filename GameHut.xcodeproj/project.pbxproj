@@ -23,6 +23,7 @@
 		610986FD1D20423300797DF1 /* CreateGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 610986FC1D20423300797DF1 /* CreateGroupViewController.swift */; };
 		611249BC1D3052B300E836FE /* GroupStateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611249BB1D3052B300E836FE /* GroupStateController.swift */; };
 		611249BE1D30531A00E836FE /* GameStateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611249BD1D30531A00E836FE /* GameStateController.swift */; };
+		6131773F1D52B4C300EF41EA /* MemberSearchHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6131773E1D52B4C300EF41EA /* MemberSearchHelper.swift */; };
 		61776DB81D3557E700260460 /* SignUpScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61776DB71D3557E700260460 /* SignUpScreenViewController.swift */; };
 		61776DBA1D3558E800260460 /* LogInScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61776DB91D3558E800260460 /* LogInScreenViewController.swift */; };
 		61776DBD1D3560F700260460 /* ActiveGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61776DBC1D3560F700260460 /* ActiveGameViewController.swift */; };
@@ -57,6 +58,7 @@
 		610986FC1D20423300797DF1 /* CreateGroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateGroupViewController.swift; sourceTree = "<group>"; };
 		611249BB1D3052B300E836FE /* GroupStateController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupStateController.swift; sourceTree = "<group>"; };
 		611249BD1D30531A00E836FE /* GameStateController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameStateController.swift; sourceTree = "<group>"; };
+		6131773E1D52B4C300EF41EA /* MemberSearchHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberSearchHelper.swift; sourceTree = "<group>"; };
 		61776DB71D3557E700260460 /* SignUpScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpScreenViewController.swift; sourceTree = "<group>"; };
 		61776DB91D3558E800260460 /* LogInScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInScreenViewController.swift; sourceTree = "<group>"; };
 		61776DBC1D3560F700260460 /* ActiveGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActiveGameViewController.swift; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 				611249BB1D3052B300E836FE /* GroupStateController.swift */,
 				610986FC1D20423300797DF1 /* CreateGroupViewController.swift */,
 				618E6CA91D39939900E73DE5 /* AddMembersViewController.swift */,
+				6131773E1D52B4C300EF41EA /* MemberSearchHelper.swift */,
 				61AD20DE1D4180EB0037E436 /* ConfigureMembersForAddMembersVC.swift */,
 				61819D911D2314C700F4A911 /* JoinGroupViewController.swift */,
 			);
@@ -281,6 +284,7 @@
 				610986FD1D20423300797DF1 /* CreateGroupViewController.swift in Sources */,
 				6101B96C1D2E23D4006335A4 /* GroupMessagingModel.swift in Sources */,
 				610986E01D2024EC00797DF1 /* AppDelegate.swift in Sources */,
+				6131773F1D52B4C300EF41EA /* MemberSearchHelper.swift in Sources */,
 				611249BE1D30531A00E836FE /* GameStateController.swift in Sources */,
 				61F978491D345BA600596705 /* MemberCreationViewController.swift in Sources */,
 				610986F91D2025F100797DF1 /* OptionsViewController.swift in Sources */,
@@ -401,6 +405,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = GameHut/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Siwkiewicz.GameHut;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -412,6 +417,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = GameHut/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Siwkiewicz.GameHut;
 				PRODUCT_NAME = "$(TARGET_NAME)";

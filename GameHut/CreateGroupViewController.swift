@@ -12,8 +12,8 @@ class CreateGroupViewController: UIViewController, UINavigationBarDelegate
 {
     @IBOutlet weak var createGroupNavBar: UINavigationBar!
     
-    let groupStateController = GroupStateController()
-    let localMemberStateController = LocalMemberStateController()
+    var groupStateController = GroupStateController()
+    var localMemberStateController = LocalMemberStateController()
     
     @IBOutlet weak var groupName: UITextField!
     
@@ -21,6 +21,11 @@ class CreateGroupViewController: UIViewController, UINavigationBarDelegate
         presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
     }
     
+    private struct Constants
+    {
+        // Segue Identifiers
+        static let AddMember = "AddMember"
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +36,15 @@ class CreateGroupViewController: UIViewController, UINavigationBarDelegate
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == Constants.AddMember {
+            if let destinationViewController = segue.destinationViewController as? AddMembersViewController {
+                destinationViewController.groupStateController = groupStateController
+                destinationViewController.localMemberStateController = localMemberStateController
+            }
+        }
     }
     
     func positionForBar(bar: UIBarPositioning) -> UIBarPosition {

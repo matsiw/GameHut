@@ -15,8 +15,10 @@ class AddMembersViewController: UIViewController, UITableViewDelegate, UITableVi
     
     @IBOutlet weak var memberTableView: UITableView!
     @IBOutlet weak var searchAndAddMemberView: UITextView!
+    
+    var groupStateController = GroupStateController()
+    var localMemberStateController = LocalMemberStateController()
 
-        
     let randomArray: [Array<String>] = [["J", "James Smith"], ["L", "Laura Michaels"]]
     
     override func viewDidLoad() {

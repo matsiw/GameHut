@@ -15,5 +15,8 @@ class GroupStateController {
         arrayOfAllGroups.append(model)
     }
     
+    func removeModel(row: Int) {
+        arrayOfAllGroups.removeAtIndex(row)
+    }
     
 }

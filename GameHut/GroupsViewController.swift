@@ -88,7 +88,7 @@ class GroupsViewController: UIViewController, UINavigationBarDelegate, UITableVi
     }
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        groupStateController.arrayOfAllGroups.removeAtIndex(indexPath.row)
+        groupStateController.removeModel(indexPath.row)
         tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
     }
     
