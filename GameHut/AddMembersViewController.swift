@@ -26,8 +26,6 @@ class AddMembersViewController: UIViewController, UITableViewDelegate, UITableVi
         memberTableView.delegate = self
         memberTableView.dataSource = self
         searchAndAddMemberView.delegate = self
-        // Do any additional setup after loading the view.
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -103,12 +101,6 @@ class AddMembersViewController: UIViewController, UITableViewDelegate, UITableVi
             searchAndAddMemberView.text = Constants.searchAndAddMemberViewPlaceholderText
         }
     }
-    
-    
-    
-    
-    
-    
     
     
 
