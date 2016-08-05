@@ -8,7 +8,7 @@
 
 import UIKit
 
-// get contacts from "people you've been in a group with before" and "from My Friends list"
+// get contacts from "people you've been in a group with before" (recents) and "from My Friends list"
 
 class AddMembersViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextViewDelegate
 {
@@ -101,7 +101,6 @@ class AddMembersViewController: UIViewController, UITableViewDelegate, UITableVi
             searchAndAddMemberView.text = Constants.searchAndAddMemberViewPlaceholderText
         }
     }
-    
     
 
 }
