@@ -44,7 +44,7 @@ class Trie {
         while(keyword.characters.count != current.level) {
             
             var childToUse: TrieNode!
-            let searchKey: String = keyword.substringToIndex(current.level + 1)
+            let searchKey: String = keyword.substringToIndex(keyword.startIndex.advancedBy(current.level + 1))
             
             for child in current.children {
                 
@@ -88,7 +88,7 @@ class Trie {
         while(keyword.characters.count != current.level) {
             
             var childToUse: TrieNode!
-            let searchKey: String = keyword.substringToIndex(current.level + 1)
+            let searchKey: String = keyword.substringToIndex(keyword.startIndex.advancedBy(current.level + 1))
             
             for child in current.children {
                 
@@ -118,5 +118,11 @@ class Trie {
         }
     }
     
+    func deleteWord(keyword: String) {
+        
+    }
+    
     
 }
+
+

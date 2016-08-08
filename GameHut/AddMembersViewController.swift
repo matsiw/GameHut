@@ -18,15 +18,20 @@ class AddMembersViewController: UIViewController, UITableViewDelegate, UITableVi
     
     var groupStateController = GroupStateController()
     var localMemberStateController = LocalMemberStateController()
+    var helper = AddMemberVCHelper()
 
-    let randomArray: [Array<String>] = [["J", "James Smith"], ["L", "Laura Michaels"]]
-    //////////// change to get members from MemberSearchHelper
+    var randomArray: [Array<String>] = []
+        // [["J", "James Smith"], ["L", "Laura Michaels"]] // 
     
     override func viewDidLoad() {
         super.viewDidLoad()
         memberTableView.delegate = self
         memberTableView.dataSource = self
         searchAndAddMemberView.delegate = self
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
     }
 
     override func didReceiveMemoryWarning() {

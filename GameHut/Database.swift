@@ -12,9 +12,6 @@ import Foundation
 
 struct Database {
     // temporary "database" to retrieve data from
-    private(set) var memberModelArrayFromDB: [MemberModel] = [MemberModel(name: "James Smith"), MemberModel(name: "Laura Michaels")]
+    private(set) var memberModelArrayFromDB: [MemberModel] = [MemberModel(name: "Ames Smith"), MemberModel(name: "Betty Michaels"), MemberModel(name: "Zed Fisher")]
     
-    func getMembersFromDB() {
-        
-    }
 }
