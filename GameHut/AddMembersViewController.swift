@@ -20,6 +20,7 @@ class AddMembersViewController: UIViewController, UITableViewDelegate, UITableVi
     var localMemberStateController = LocalMemberStateController()
 
     let randomArray: [Array<String>] = [["J", "James Smith"], ["L", "Laura Michaels"]]
+    //////////// change to get members from MemberSearchHelper
     
     override func viewDidLoad() {
         super.viewDidLoad()

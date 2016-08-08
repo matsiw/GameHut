@@ -13,6 +13,7 @@ class MemberSearchHelper
     // Instantiate database to access methods
     let theDatabase = Database()
     
+    // linear search
     func searchFor(firstName: String, lastName: String) -> MemberModel? {
         // search the array of Members in the database by name
         
@@ -26,6 +27,7 @@ class MemberSearchHelper
         
         return returnMember
     }
+    
 }
 
 
