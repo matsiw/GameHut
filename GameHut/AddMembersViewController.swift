@@ -20,18 +20,20 @@ class AddMembersViewController: UIViewController, UITableViewDelegate, UITableVi
     var localMemberStateController = LocalMemberStateController()
     var helper = AddMemberVCHelper()
 
-    var randomArray: [Array<String>] = []
-        // [["J", "James Smith"], ["L", "Laura Michaels"]] // 
+    var listArray: [Array<String>] = []
+    // example output[["J", "James Smith"], ["L", "Laura Michaels"]] //
     
     override func viewDidLoad() {
         super.viewDidLoad()
         memberTableView.delegate = self
         memberTableView.dataSource = self
         searchAndAddMemberView.delegate = self
+        listArray = helper.sortNames()
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        memberTableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -51,31 +53,31 @@ class AddMembersViewController: UIViewController, UITableViewDelegate, UITableVi
 
     // MARK: TableView Methods
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return randomArray.count
+        return listArray.count
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // for testing
-        return randomArray[section].count - 1
+        return listArray[section].count - 1
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(Constants.TableViewCell, forIndexPath: indexPath)
         
-        cell.textLabel?.text = randomArray[indexPath.section][indexPath.row + 1]
+        cell.textLabel?.text = listArray[indexPath.section][indexPath.row + 1]
         
         return cell
     }
     
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return randomArray[section][0]
+        return listArray[section][0]
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
         var oldText = searchAndAddMemberView.text
-        let addedText = randomArray[indexPath.section][indexPath.row + 1] + " " + randomArray[indexPath.section][indexPath.row]
+        let addedText = listArray[indexPath.section][indexPath.row + 1] + " " + listArray[indexPath.section][indexPath.row]
         
         if oldText == Constants.searchAndAddMemberViewPlaceholderText {
             searchAndAddMemberView.text = ""

@@ -12,10 +12,11 @@ struct MemberModel {
     
     var name: String
     var friends: [String] = []
-    var id: Int = 1 // FIX
+    var id: Int // FIX to create a unique number for each user
     
-    init(name: String) {
+    init(name: String, id: Int) {
         self.name = name
+        self.id = id
     }
     
 }
