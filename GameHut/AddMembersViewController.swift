@@ -110,5 +110,9 @@ class AddMembersViewController: UIViewController, UITableViewDelegate, UITableVi
         }
     }
     
+    func textViewDidChange(textView: UITextView) {
+        print(textView)
+    }
+    
 
 }
