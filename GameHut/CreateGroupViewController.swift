@@ -14,6 +14,7 @@ class CreateGroupViewController: UIViewController, UINavigationBarDelegate
     
     var groupStateController = GroupStateController()
     var localMemberStateController = LocalMemberStateController()
+    var arrayOfMembersToBeAdded: [MemberModel] = []
     
     @IBOutlet weak var groupName: UITextField!
     
@@ -43,6 +44,7 @@ class CreateGroupViewController: UIViewController, UINavigationBarDelegate
             if let destinationViewController = segue.destinationViewController as? AddMembersViewController {
                 destinationViewController.groupStateController = groupStateController
                 destinationViewController.localMemberStateController = localMemberStateController
+                destinationViewController.arrayOfMembersToBeAdded = arrayOfMembersToBeAdded
             }
         }
     }
@@ -57,6 +59,7 @@ class CreateGroupViewController: UIViewController, UINavigationBarDelegate
         // Check if groupName is empty and send error if true
 
         let model = GroupModel(groupName: groupName.text!, groupID: 1, groupOwner: localMemberStateController.localMember.name)
+        groupStateController.addMembers(arrayOfMembersToBeAdded, groupID: model.groupID)
         groupStateController.addModel(model)
     
         presentingViewController?.dismissViewControllerAnimated(true, completion: nil)

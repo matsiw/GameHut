@@ -9,11 +9,13 @@
 import Foundation
 
 class GeneralUseFunctions {
-    // return bool on whether a list already has key's string
-    func detectDuplicateStringFromList(list: [String], searchKey: String) -> Bool {
+    // return possible strings as array related to key from given array
+    
+    //////// FIX ////////////
+    func autocomplete(list: [String], searchKey: String) -> [String] {
         var upperIndex = list.count - 1
         var lowerIndex = 0
-        var isDuplicate = false
+        var autocompletedArray: [String] = []
         var oldIndex = 0
         
         while (lowerIndex <= upperIndex) {
@@ -25,7 +27,6 @@ class GeneralUseFunctions {
                     currentIndex = (upperIndex + lowerIndex) / 2
                     
                     if list[currentIndex] == searchKey && currentIndex != oldIndex {
-                        isDuplicate = true
                         break
                     } else {
                         if list[currentIndex] > searchKey {
@@ -45,7 +46,7 @@ class GeneralUseFunctions {
             
         }
         
-        return isDuplicate
+        return autocompletedArray
     }
 
 }

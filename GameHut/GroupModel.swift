@@ -13,12 +13,11 @@ struct GroupModel {
     
     // group specfic properties
     var groupName: String
-    var groupID: Int  // FIX
+    var groupID: Int  // FIX // each group must have unique id
     var groupOwner: String
     
     var numberOfGroupMembers: Int = 1 // at least one member needed for group to exist
-    var namesOfGroupMembers: [String] = []
-    var nicknamesOfGroupMembers: [String] = []
+    var groupMembers: [MemberModel] = []
     
     var groupImage: UIImage = UIImage(named: ImageAssets.Default.rawValue)!
     // network specfic properties

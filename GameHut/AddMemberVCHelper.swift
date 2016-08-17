@@ -34,30 +34,40 @@ class AddMemberVCHelper {
     // screen names from trie to format [MemberModel] and remove possible duplicates
     func screenRelatedNames() {
         var arrayOfNames: Array<String> = []
-        var memberName: String?
-        var memberID: Int?
-        var pipeIndex: Int?
+        var memberName: [String] = []
+        var memberID: [Int] = []
+        var tempArray: [String] = []
         
         for member in membersFromDB {
             arrayOfNames = relatedMemberTrie.findWord("\(member.name)|\(member.id)")
             for name in arrayOfNames {
-                for index in name.characters.indices {
-                    // name and ID seperated by | symbol
-                    if name[index] == "|" {
-                        pipeIndex = name.startIndex.distanceTo(index) + 1
-                    }
-                }
-                memberName = name.substringToIndex(name.startIndex.advancedBy(pipeIndex! - 1))
-                memberID = Int(name.substringFromIndex(name.startIndex.advancedBy(pipeIndex!)))
-                
-                screenedMembers.append(MemberModel(name: memberName!, id: memberID!))
+                tempArray.append(name)
+            }
+            (memberName, memberID) = getNameAndIDFromPipedStringArray(tempArray)
+        }
+        for name in memberName {
+            for id in memberID {
+                screenedMembers.append(MemberModel(name: name, id: id))
             }
         }
     }
     
-    // autocomplete for the Related Member Trie
-    func autocomplete(typedString: String) -> [String] {
-        return relatedMemberTrie.autocomplete(typedString)
+    func getNameAndIDFromPipedStringArray(array: [String]) -> (memberName: [String], memberID: [Int]) {
+        var memberName: [String] = []
+        var memberID: [Int] = []
+        var pipeIndex: Int?
+        
+        for name in array {
+            for index in name.characters.indices {
+                // name and ID seperated by | symbol
+                if name[index] == "|" {
+                    pipeIndex = name.startIndex.distanceTo(index) + 1
+                }
+            }
+            memberName.append(name.substringToIndex(name.startIndex.advancedBy(pipeIndex! - 1)))
+            memberID.append(Int(name.substringFromIndex(name.startIndex.advancedBy(pipeIndex!)))!)
+        }
+        return (memberName, memberID)
     }
     
     // arrange an array of strings in alphabetical order

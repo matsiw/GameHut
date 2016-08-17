@@ -18,6 +18,7 @@ class AddMembersViewController: UIViewController, UITableViewDelegate, UITableVi
     
     var groupStateController = GroupStateController()
     var localMemberStateController = LocalMemberStateController()
+    var arrayOfMembersToBeAdded: [MemberModel] = []
     var helper = AddMemberVCHelper()
 
     var listArray: [Array<String>] = []
@@ -111,8 +112,17 @@ class AddMembersViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func textViewDidChange(textView: UITextView) {
-        print(textView)
+        let memberArray = helper.screenedMembers
+        
+        for member in memberArray {
+            if textView.text == member.name {
+                arrayOfMembersToBeAdded.append(member)
+                // delete member if textView shows member is deleted
+            }
+        }
+        
     }
-    
 
+    
+    
 }

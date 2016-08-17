@@ -120,12 +120,7 @@ class Trie {
     
     func deleteWord(keyword: String) {
         
-    }
-    
-    func autocomplete(typedString: String) -> [String] {
-        return self.findWord(typedString)
-    }
-    
+    }    
     
 }
 
