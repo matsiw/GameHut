@@ -19,13 +19,14 @@ class GroupStateController {
         arrayOfAllGroups.removeAtIndex(row)
     }
     
-    func addMembers(members: [MemberModel], groupID: Int) {
+    func addMembers(members: [MemberModel], ID: Int) {
         for group in arrayOfAllGroups {
-            if group.groupID == groupID {
+            if group.groupID == ID {
                 for member in members {
                     group.groupMembers.append(member)
                 }
             }
         }
     }
+    
 }

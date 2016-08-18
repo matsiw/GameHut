@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-struct GroupModel {
+class GroupModel {
     
     // group specfic properties
     var groupName: String
@@ -21,7 +21,7 @@ struct GroupModel {
     
     var groupImage: UIImage = UIImage(named: ImageAssets.Default.rawValue)!
     // network specfic properties
-    var accessType: AccessType = .Public // public or private
+    var accessType: AccessType = .Public // public or private in terms of being seen by the world or just by friends
     
     init(groupName: String, groupID: Int, groupOwner: String) {
         self.groupName = groupName
@@ -37,5 +37,4 @@ struct GroupModel {
     enum ImageAssets: String {
         case Default = "Default"
     }
-    
 }

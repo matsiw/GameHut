@@ -30,4 +30,10 @@ class LocalMemberStateController {
             }
         }
     }
+    
+    func adjustMemberDetails(name: String, id: Int) {
+        localMember.name = name
+        localMember.id = id
+    }
+    
 }

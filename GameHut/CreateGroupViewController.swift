@@ -59,7 +59,7 @@ class CreateGroupViewController: UIViewController, UINavigationBarDelegate
         // Check if groupName is empty and send error if true
 
         let model = GroupModel(groupName: groupName.text!, groupID: 1, groupOwner: localMemberStateController.localMember.name)
-        groupStateController.addMembers(arrayOfMembersToBeAdded, groupID: model.groupID)
+        groupStateController.addMembers(arrayOfMembersToBeAdded, ID: model.groupID)
         groupStateController.addModel(model)
     
         presentingViewController?.dismissViewControllerAnimated(true, completion: nil)

@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct MemberModel {
+class MemberModel {
     
     var name: String // name does not have to be unique due to unique id 
     var nickname: String?
