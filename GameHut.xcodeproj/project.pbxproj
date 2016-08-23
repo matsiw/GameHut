@@ -24,6 +24,7 @@
 		611249BC1D3052B300E836FE /* GroupStateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611249BB1D3052B300E836FE /* GroupStateController.swift */; };
 		611249BE1D30531A00E836FE /* GameStateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611249BD1D30531A00E836FE /* GameStateController.swift */; };
 		6118E94A1D542B55006B1FA5 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6118E9491D542B55006B1FA5 /* Database.swift */; };
+		611902EB1D6CF0ED009F9490 /* GenerateUniqueID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611902EA1D6CF0ED009F9490 /* GenerateUniqueID.swift */; };
 		615C9C431D58086F00F7206C /* TrieStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615C9C421D58086F00F7206C /* TrieStructure.swift */; };
 		61776DB81D3557E700260460 /* SignUpScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61776DB71D3557E700260460 /* SignUpScreenViewController.swift */; };
 		61776DBA1D3558E800260460 /* LogInScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61776DB91D3558E800260460 /* LogInScreenViewController.swift */; };
@@ -60,6 +61,7 @@
 		611249BB1D3052B300E836FE /* GroupStateController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupStateController.swift; sourceTree = "<group>"; };
 		611249BD1D30531A00E836FE /* GameStateController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameStateController.swift; sourceTree = "<group>"; };
 		6118E9491D542B55006B1FA5 /* Database.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
+		611902EA1D6CF0ED009F9490 /* GenerateUniqueID.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenerateUniqueID.swift; sourceTree = "<group>"; };
 		615C9C421D58086F00F7206C /* TrieStructure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrieStructure.swift; sourceTree = "<group>"; };
 		61776DB71D3557E700260460 /* SignUpScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpScreenViewController.swift; sourceTree = "<group>"; };
 		61776DB91D3558E800260460 /* LogInScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInScreenViewController.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 			children = (
 				610986DF1D2024EC00797DF1 /* AppDelegate.swift */,
 				6118E9491D542B55006B1FA5 /* Database.swift */,
+				611902EA1D6CF0ED009F9490 /* GenerateUniqueID.swift */,
 				618E6CA71D39907A00E73DE5 /* GeneralUseProtocols.swift */,
 				615C9C421D58086F00F7206C /* TrieStructure.swift */,
 				61776DBB1D355ACD00260460 /* Authentication FIles */,
@@ -293,6 +296,7 @@
 				61776DB81D3557E700260460 /* SignUpScreenViewController.swift in Sources */,
 				618E6CA81D39907A00E73DE5 /* GeneralUseProtocols.swift in Sources */,
 				618E6CAA1D39939900E73DE5 /* AddMembersViewController.swift in Sources */,
+				611902EB1D6CF0ED009F9490 /* GenerateUniqueID.swift in Sources */,
 				615C9C431D58086F00F7206C /* TrieStructure.swift in Sources */,
 				610986E81D2024EC00797DF1 /* GameHut.xcdatamodeld in Sources */,
 				610986F71D2025D400797DF1 /* GamesViewController.swift in Sources */,

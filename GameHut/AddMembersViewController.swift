@@ -8,8 +8,12 @@
 
 import UIKit
 
-// get contacts from "people you've been in a group with before" (recents) and "from My Friends list"
+protocol AddMembersToCreateGroup {
+    func addPotentialMember(member: MemberModel)
+    func deletePotentialMember(member: MemberModel)
+}
 
+// get contacts from "people you've been in a group with before" (recents) and "from My Friends list"
 class AddMembersViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextViewDelegate
 {
     
@@ -18,11 +22,11 @@ class AddMembersViewController: UIViewController, UITableViewDelegate, UITableVi
     
     var groupStateController = GroupStateController()
     var localMemberStateController = LocalMemberStateController()
-    var arrayOfMembersToBeAdded: [MemberModel] = []
     var helper = AddMemberVCHelper()
+    var addMembersToCreateGroup: AddMembersToCreateGroup?
 
     var listArray: [Array<String>] = []
-    // example output[["J", "James Smith"], ["L", "Laura Michaels"]] //
+    // example output[["J", "James Smith|4"], ["L", "Laura Michaels|3"]] //
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,6 +55,25 @@ class AddMembersViewController: UIViewController, UITableViewDelegate, UITableVi
         static let searchAndAddMemberViewPlaceholderText = "Type a name or phone number"
     }
     
+    private func parseName(arrayMember: String) -> Int? {
+
+        var pipeIndex: Int?
+        firstLoop: for section in listArray {
+            for name in section {
+                if name == arrayMember {
+                    for index in name.characters.indices {
+                        // name and ID seperated by | symbol
+                        if name[index] == "|" {
+                            pipeIndex = name.startIndex.distanceTo(index) + 1
+                            return pipeIndex!
+                        }
+                    }
+                }
+            }
+        }
+        return pipeIndex
+    }
+    
 
     // MARK: TableView Methods
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -65,7 +88,10 @@ class AddMembersViewController: UIViewController, UITableViewDelegate, UITableVi
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(Constants.TableViewCell, forIndexPath: indexPath)
         
-        cell.textLabel?.text = listArray[indexPath.section][indexPath.row + 1]
+        let arrayMember = listArray[indexPath.section][indexPath.row + 1]
+        let pipeIndex = parseName(arrayMember)
+        
+        cell.textLabel?.text = arrayMember.substringToIndex(arrayMember.startIndex.advancedBy(pipeIndex! - 1))
         
         return cell
     }
@@ -77,21 +103,33 @@ class AddMembersViewController: UIViewController, UITableViewDelegate, UITableVi
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
+        searchAndAddMemberView.textColor = colorPicker(0.0, green: 206.0, blue: 209.0, alpha: 1.0) // dark turquoise
+        let arrayMember = listArray[indexPath.section][indexPath.row + 1]
+        let pipeIndex = parseName(arrayMember)
+        
         var oldText = searchAndAddMemberView.text
-        let addedText = listArray[indexPath.section][indexPath.row + 1] + " " + listArray[indexPath.section][indexPath.row]
+        let addedText = arrayMember.substringToIndex(arrayMember.startIndex.advancedBy(pipeIndex! - 1))
+        
+        let memberArray = helper.screenedMembers
+        for member in memberArray {
+            if addedText == member.name {
+                print(member.name)
+                addMembersToCreateGroup?.addPotentialMember(member)
+                // delete member if textView shows member is deleted
+            }
+        }
         
         if oldText == Constants.searchAndAddMemberViewPlaceholderText {
             searchAndAddMemberView.text = ""
             oldText = ""
         }
         
-        searchAndAddMemberView.textColor = colorPicker(0.0, green: 206.0, blue: 209.0, alpha: 1.0) // dark turquoise
-        
         if oldText == "" {
             searchAndAddMemberView.text = addedText + ", "
         } else {
             searchAndAddMemberView.text = oldText + addedText + ", "
         }
+        
     }
     
     
@@ -109,18 +147,6 @@ class AddMembersViewController: UIViewController, UITableViewDelegate, UITableVi
             searchAndAddMemberView.textColor = UIColor.lightGrayColor()
             searchAndAddMemberView.text = Constants.searchAndAddMemberViewPlaceholderText
         }
-    }
-    
-    func textViewDidChange(textView: UITextView) {
-        let memberArray = helper.screenedMembers
-        
-        for member in memberArray {
-            if textView.text == member.name {
-                arrayOfMembersToBeAdded.append(member)
-                // delete member if textView shows member is deleted
-            }
-        }
-        
     }
 
     

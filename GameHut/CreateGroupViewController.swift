@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CreateGroupViewController: UIViewController, UINavigationBarDelegate
+class CreateGroupViewController: UIViewController, UINavigationBarDelegate, AddMembersToCreateGroup
 {
     @IBOutlet weak var createGroupNavBar: UINavigationBar!
     
@@ -20,6 +20,18 @@ class CreateGroupViewController: UIViewController, UINavigationBarDelegate
     
     @IBAction func cancel(sender: UIBarButtonItem) {
         presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func addPotentialMember(member: MemberModel) {
+        arrayOfMembersToBeAdded.append(member)
+    }
+    
+    func deletePotentialMember(member: MemberModel) {
+        for (index, existing) in arrayOfMembersToBeAdded.enumerate() {
+            if member.id == existing.id {
+               arrayOfMembersToBeAdded.removeAtIndex(index)
+            }
+        }
     }
     
     private struct Constants
@@ -44,7 +56,7 @@ class CreateGroupViewController: UIViewController, UINavigationBarDelegate
             if let destinationViewController = segue.destinationViewController as? AddMembersViewController {
                 destinationViewController.groupStateController = groupStateController
                 destinationViewController.localMemberStateController = localMemberStateController
-                destinationViewController.arrayOfMembersToBeAdded = arrayOfMembersToBeAdded
+                destinationViewController.addMembersToCreateGroup = self
             }
         }
     }
@@ -54,13 +66,14 @@ class CreateGroupViewController: UIViewController, UINavigationBarDelegate
     }
     
     @IBAction func createGroup(sender: UIButton) {
-        // Set all information to a new copy of a model and pass it to the state
-        
         // Check if groupName is empty and send error if true
-
+        if groupName.text == "" {
+            print("error, no group name")
+        }
+        
         let model = GroupModel(groupName: groupName.text!, groupID: 1, groupOwner: localMemberStateController.localMember.name)
-        groupStateController.addMembers(arrayOfMembersToBeAdded, ID: model.groupID)
         groupStateController.addModel(model)
+        groupStateController.addMembers(arrayOfMembersToBeAdded, ID: model.groupID)
     
         presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
 

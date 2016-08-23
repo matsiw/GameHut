@@ -19,21 +19,24 @@ class GroupStateController {
         arrayOfAllGroups.removeAtIndex(row)
     }
     
-    /////////// TEST ////////////
+    // for use after group creation
     func addMembers(members: [MemberModel], ID: Int) {
         for group in arrayOfAllGroups {
             if group.groupID == ID {
                 for member in members {
+                    print(member.name)
                     group.groupMembers.append(member)
                 }
             }
         }
     }
     
-    func removeMember(members: [MemberModel], ID: Int) {
+    // for use after group creation
+    func removeMembers(members: [MemberModel], ID: Int) {
         for group in arrayOfAllGroups {
             if group.groupID == ID {
                 for member in members {
+                    print(member.name)
                     let count = group.groupMembers.count - 1
                     var start = 0
                     while (start < count) {
@@ -47,8 +50,6 @@ class GroupStateController {
             }
         }
     }
-    /////////// TEST ////////////    
-    
     
 }
 
