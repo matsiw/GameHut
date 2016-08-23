@@ -45,11 +45,15 @@ class AddMemberVCHelper {
             }
             (memberName, memberID) = getNameAndIDFromPipedStringArray(tempArray)
         }
-        for name in memberName {
-            for id in memberID {
-                screenedMembers.append(MemberModel(name: name, id: id))
-            }
+        
+        let count = memberName.count
+        var start = 0
+        while (start < count - 1) {
+            screenedMembers.append(MemberModel(name: memberName[start], id: memberID[start]))
+            start = start + 1
         }
+        
+        screenedMembers.sortInPlace { $1.name > $0.name }
     }
     
     func getNameAndIDFromPipedStringArray(array: [String]) -> (memberName: [String], memberID: [Int]) {
@@ -68,11 +72,6 @@ class AddMemberVCHelper {
             memberID.append(Int(name.substringFromIndex(name.startIndex.advancedBy(pipeIndex!)))!)
         }
         return (memberName, memberID)
-    }
-    
-    // arrange an array of strings in alphabetical order
-    func arrangeAlphabetically() {
-        
     }
     
     // sort names so they are alphabetical and add in letters to group names by common initial letter
