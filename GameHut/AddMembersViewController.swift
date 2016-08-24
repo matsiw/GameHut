@@ -14,11 +14,13 @@ protocol AddMembersToCreateGroup {
 }
 
 // get contacts from "people you've been in a group with before" (recents) and "from My Friends list"
-class AddMembersViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextViewDelegate
+class AddMembersViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate
 {
     
+    
+    @IBOutlet weak var displayView: UIView!
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var memberTableView: UITableView!
-    @IBOutlet weak var searchAndAddMemberView: UITextView!
     
     var groupStateController = GroupStateController()
     var localMemberStateController = LocalMemberStateController()
@@ -30,10 +32,11 @@ class AddMembersViewController: UIViewController, UITableViewDelegate, UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(AddMembersViewController.dismissKeyboard)))
         memberTableView.delegate = self
         memberTableView.dataSource = self
-        searchAndAddMemberView.delegate = self
         listArray = helper.sortNames()
+        // nameLabel("Hey", displayViewX: displayView.frame.origin.x)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -55,6 +58,21 @@ class AddMembersViewController: UIViewController, UITableViewDelegate, UITableVi
         static let searchAndAddMemberViewPlaceholderText = "Type a name or phone number"
     }
     
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
+    func nameLabel(name: String, displayViewX: CGFloat) {
+        let getDisplayViewX = displayViewX
+        let getDisplayViewY = displayView.frame.origin.y
+        
+        let label = UILabel(frame: CGRectMake(getDisplayViewX, getDisplayViewY, 200, 21))
+        label.textAlignment = NSTextAlignment.Center
+        label.text = name
+        self.displayView.addSubview(label)
+        
+    }
+    
     private func parseName(arrayMember: String) -> Int? {
 
         var pipeIndex: Int?
@@ -74,6 +92,7 @@ class AddMembersViewController: UIViewController, UITableViewDelegate, UITableVi
         return pipeIndex
     }
     
+
 
     // MARK: TableView Methods
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -103,11 +122,11 @@ class AddMembersViewController: UIViewController, UITableViewDelegate, UITableVi
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
-        searchAndAddMemberView.textColor = colorPicker(0.0, green: 206.0, blue: 209.0, alpha: 1.0) // dark turquoise
+        // searchAndAddMemberView.textColor = colorPicker(0.0, green: 206.0, blue: 209.0, alpha: 1.0) // dark turquoise
         let arrayMember = listArray[indexPath.section][indexPath.row + 1]
         let pipeIndex = parseName(arrayMember)
         
-        var oldText = searchAndAddMemberView.text
+        // var oldText = displayView.textInputMode
         let addedText = arrayMember.substringToIndex(arrayMember.startIndex.advancedBy(pipeIndex! - 1))
         
         let memberArray = helper.screenedMembers
@@ -118,37 +137,19 @@ class AddMembersViewController: UIViewController, UITableViewDelegate, UITableVi
                 // delete member if textView shows member is deleted
             }
         }
-        
+        /*
         if oldText == Constants.searchAndAddMemberViewPlaceholderText {
-            searchAndAddMemberView.text = ""
+            // searchAndAddMemberView.text = ""
             oldText = ""
         }
         
         if oldText == "" {
-            searchAndAddMemberView.text = addedText + ", "
+            // searchAndAddMemberView.text = addedText + ", "
         } else {
-            searchAndAddMemberView.text = oldText + addedText + ", "
-        }
-        
+            // searchAndAddMemberView.text = oldText + addedText + ", "
+        }*/
     }
     
-    
-    // MARK: TextView Methods
-    
-    func textViewDidBeginEditing(textView: UITextView) {
-        if searchAndAddMemberView.text == Constants.searchAndAddMemberViewPlaceholderText {
-            searchAndAddMemberView.text = ""
-        }
-        searchAndAddMemberView.textColor = colorPicker(0.0, green: 206.0, blue: 209.0, alpha: 1.0) // dark turquoise
-    }
-    
-    func textViewDidEndEditing(textView: UITextView) {
-        if searchAndAddMemberView.text == "" {
-            searchAndAddMemberView.textColor = UIColor.lightGrayColor()
-            searchAndAddMemberView.text = Constants.searchAndAddMemberViewPlaceholderText
-        }
-    }
-
     
     
 }

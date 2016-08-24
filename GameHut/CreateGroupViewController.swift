@@ -34,6 +34,10 @@ class CreateGroupViewController: UIViewController, UINavigationBarDelegate, AddM
         }
     }
     
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
     private struct Constants
     {
         // Segue Identifiers
@@ -42,6 +46,7 @@ class CreateGroupViewController: UIViewController, UINavigationBarDelegate, AddM
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(AddMembersViewController.dismissKeyboard)))
         self.title = "Create Group"
         createGroupNavBar.delegate = self
     }
